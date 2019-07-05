@@ -1,0 +1,50 @@
+
+
+
+/**
+ * The Customer entity.
+ */
+entity Customer {
+	/**
+	* The firstname attribute.
+	*/
+	firstName String,
+	lastName String,
+	email String,
+	phoneNumber String
+	
+}
+
+entity Service {
+	serviceType String,
+	serviceId Long,
+	activationDate Instant
+}
+
+
+enum Language {
+    FRENCH, ENGLISH, SPANISH
+}
+
+// defining multiple OneToMany relationships with comments
+relationship OneToMany {
+	Customer to Service
+	/**
+	* A relationship
+	*/
+}
+
+
+
+// Set pagination options
+
+paginate Customer, Service with pagination
+
+// Use Data Transfert Objects (DTO)
+// dto * with mapstruct
+
+// Set service options to all except few
+//service all with serviceImpl except Employee, Job
+service all with serviceImpl
+// Set an angular suffix
+// angularSuffix * with mySuffix
